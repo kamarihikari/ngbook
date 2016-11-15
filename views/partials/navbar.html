@@ -1,0 +1,34 @@
+<div class="navbar-fixed">
+	<nav class="blue darken-2" (auth)="loadUser($event)">
+		<div class="nav-wrapper container">
+			<a href="/" class="brand-logo">NGbook</a>
+			 <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+			 <ul class="side-nav" id="mobile-menu">
+				 <div ng-show="core.props.user.active">
+					<li><p class="black-text">{[{core.props.user.username}]}</p></li>
+					<li><a href="#!" ng-click="logout()">Log out</a></li>
+				 </div>
+				 <div ng-hide="core.props.user.active">
+					 <li><a href="#auth-modal" class="modal-trigger" data-target="auth-modal">Login</a></li>
+					<li><a href="#reg-modal" class="modal-trigger" data-target="reg-modal">Register</a></li>
+				 </div>
+				</ul>
+			<div ng-show="core.props.user.active">
+				<ul class="right hide-on-med-and-down">
+					<li>{[{core.props.user.username}]} &nbsp;</li>
+					<li><a href="#!" ng-click="logout()">Log out</a></li>
+				</ul>
+			</div>
+			<div ng-hide="core.props.user.active">
+				<ul class="right hide-on-med-and-down">
+					<li><a href="#auth-modal" class="modal-trigger" data-target="auth-modal">Login</a></li>
+					<li><a href="#reg-modal" class="modal-trigger" data-target="reg-modal">Register</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-menu">
+					<li><a href="#auth-modal" class="modal-trigger" data-target="auth-modal">Login</a></li>
+					<li><a href="#reg-modal" class="modal-trigger" data-target="reg-modal">Register</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>

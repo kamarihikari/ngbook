@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NGbook">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NGbook</title>
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+	</script>
+	<![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Materialize core CSS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body ng-controller="coreController as core">
+	{{>navbar}}
+
+	<div id="loading-overlay" ng-hide="core.props.loaded" ng-init="load()"></div>
+
+	<div id="wrapper" class="container" ng-controller="postController as pctl">
+		{{{body}}}
+
+
+		<div id="auth-modals" ng-controller="authController as auth">
+			<!-- Auth Modal -->
+			<div id="auth-modal" class="modal">
+				<div class="modal-content">
+					<h4>NGbook Login</h4>
+					<input type="text" name="username" placeholder="Username" ng-model="auth.props.username">
+					<input type="password" name="password" placeholder="Password" ng-model="auth.props.password">
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat green lighten-2" ng-click="login()">Login</a>
+					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red lighten-2">Cancel</a>
+				</div>
+			</div>
+			<div id="reg-modal" class="modal">
+				<div class="modal-content">
+					<h4>NGbook Registration</h4>
+					<input type="text" name="username" placeholder="Username" ng-model="auth.props.username">
+					<input type="password" name="password" placeholder="Password" ng-model="auth.props.password">
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat green lighten-2" ng-click="register()">Register</a>
+					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red lighten-2">Cancel</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<script src="/javascripts/app.js"></script>
+
+	<script>
+		( function () {
+			 $(document).ready(function(){
+    			$('.modal-trigger').leanModal();
+				$('.button-collapse').sideNav({
+					menuWidth: 300, 
+					closeOnClick: true 
+				});
+  		 });
+		})();
+	</script>
+</body>
+
+</html>

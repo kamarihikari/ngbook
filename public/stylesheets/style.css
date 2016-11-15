@@ -1,0 +1,131 @@
+body {
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #E9E9E9;
+}
+
+div#loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #f3f2f2;
+  z-index: 9999;
+}
+
+.comment-btn {
+  display: none;
+}
+
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#wrapper {
+  max-width: 40%;
+}
+
+.container .row {
+  margin: 0;
+}
+
+#auth-required {
+  padding: 16px;
+  text-align: center;
+}
+
+.modal-footer .btn-flat {
+  margin: 8px !important;
+}
+
+.row {
+    margin: 0;
+}
+#post-head .card .row {
+    margin-top: 1.5em;
+    padding: 8px;
+}
+#post-head .button-area {
+    text-align: right;
+    background-color: rgba(228, 225, 225, 0.2);
+    padding: 10px;
+    border-top: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+#posts-list .card {
+    background-color: #FFF;
+}
+#posts-list .post-name {
+    margin: 0;
+    color: #365899;
+}
+
+#posts-list i {
+    font-size: 14px;
+}
+
+#posts-list i.delete-btn {
+  font-size: 24px;
+}
+
+#posts-list .button-area a {
+    color: grey;
+}
+
+#posts-list .like-area {
+    margin-bottom: 8px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.16);
+}
+
+#posts-list .like-area p {
+    margin: 0;
+}
+
+#posts-list .comments-list {
+    margin: 12px auto;
+}
+
+#posts-list .post-header {
+    padding: 8px;
+}
+
+#posts-list .post-footer {
+    border-top: 1px solid #e1e2e3;
+    background-color: #f6f7f9;
+    padding: 8px;
+}
+
+#posts-list span.comment {
+    display: block;
+    margin-bottom: 16px;
+}
+
+ .button-area .liked {
+    color: #a8a3e8 !important;
+}
+
+#sidenav-overlay {
+  z-index: 0 !important;
+}
+
+#mobile-menu p {
+  text-align: center;
+}
+
+
+@media (max-width: 600px) {
+  #wrapper {
+    max-width: 100%;
+  }
+  .comment-btn {
+    display: block;
+    width: 100%;
+  }
+}

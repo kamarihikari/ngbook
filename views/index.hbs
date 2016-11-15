@@ -1,0 +1,43 @@
+<div class="card" id="auth-required" ng-hide="core.props.user.active">
+	<h4>You must be logged in to post</h4>
+</div>
+<div id="post-head" ng-show="core.props.user.active">
+	<div class="card hoverable">
+		<div class="row">
+			<div class="col s12">
+				<input type="text" placeholder="What's on your mind?" id="post-input" ng-model="pctl.props.currentPost">
+			</div>
+		</div>
+		<div class="row col s12 button-area">
+			<a class="waves-effect waves-light btn blue darken-3" ng-click="addPost()">Post</a>
+		</div>
+	</div>
+</div>
+<div class="row col s12">
+		<div id="posts-list" ng-init="loadPosts()">
+			<div class="card" ng-repeat="post in pctl.props.posts" ng-init="loadLike($index)">
+				<div class="post-header">
+					<p class="post-name">{[{post.owner}]} <span class="right" ng-show="ownPost($index)"><i class="material-icons delete-btn" ng-click="deletePost($index)">clear</i></span></p>
+					<small>{[{post.date | date: 'medium'}]}</small>
+					<p class="post-contents">
+						{[{post.content}]}
+					</p>
+					<div class="like-area">
+						<p class="blue-text" ng-show="post.likes > 0"><i class="material-icons">thumb_up</i>&nbsp;{[{post.likes}]}</p>
+					</div>
+					<div class="button-area" ng-hide="!core.props.user.active">
+						<a href="#!" ng-click="toggleLike($index)" ng-class="{'liked': post.isLiked}"><i class="material-icons">thumb_up</i> Like</a>
+					</div>
+				</div>
+				<div class="post-footer">
+					<div class="comments-list">
+						<span class="comment" ng-repeat="comment in post.comments"><p class="post-name">{[{comment.user}]}</p> {[{comment.content}]}</span>
+					</div>
+					<div class="comment-area">
+						<input ng-click="setCommentIndex($index)" type="text" placeholder="Write a comment ..." ng-keypress=handlePressEvent($event) ng-model="post.currentComment" ng-hide="!core.props.user.active">
+                        <button class="btn comment-btn" ng-click="addComment()">Comment</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
